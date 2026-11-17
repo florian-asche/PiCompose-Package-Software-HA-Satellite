@@ -1,0 +1,24 @@
+name: Build and publish
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: build-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  package:
+    name: Package
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    uses: florian-asche/PiCompose-Repository/.github/workflows/package-build.yml@main
+    permissions:
+      contents: write
+    secrets:
+      hub-token: ${{ secrets.HUB_DISPATCH_TOKEN }}

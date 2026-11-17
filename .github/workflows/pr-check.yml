@@ -1,0 +1,25 @@
+name: PR version label
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - edited
+      - reopened
+      - synchronize
+      - labeled
+      - unlabeled
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Check
+    uses: florian-asche/PiCompose-Repository/.github/workflows/package-pr-check.yml@main
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write

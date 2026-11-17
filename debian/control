@@ -1,0 +1,20 @@
+Source: ha-satellite
+Section: admin
+Priority: optional
+Maintainer: Florian Asche <github@florian-asche.de>
+Build-Depends: debhelper-compat (= 13)
+Standards-Version: 4.7.0
+Homepage: https://github.com/florian-asche/PiCompose-Package-HA-Satellite
+Rules-Requires-Root: no
+
+Package: ha-satellite
+Architecture: all
+Depends: ${misc:Depends},
+ picompose-core
+Description: Home Assistant voice satellite for PiCompose
+ Compose projects that turn a PiCompose system into a Home Assistant voice
+ satellite: the Linux voice assistant and a Snapcast client for audio playback.
+ .
+ The projects are copied to /compose, where the PiCompose compose manager
+ deploys them. The Linux voice assistant is enabled, the Snapcast client is
+ disabled until it is enabled in its picompose.conf.

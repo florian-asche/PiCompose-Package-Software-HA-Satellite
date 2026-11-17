@@ -1,0 +1,18 @@
+#!/bin/sh
+set -e
+
+case "$1" in
+    configure)
+        # The projects belong to the user once they exist, so they are copied only if missing.
+        for project in lva snapcast; do
+            if [ ! -e "/compose/${project}" ]; then
+                mkdir -p "/compose/${project}"
+                cp -a "/usr/share/picompose/compose/${project}/." "/compose/${project}/"
+            fi
+        done
+        ;;
+esac
+
+#DEBHELPER#
+
+exit 0

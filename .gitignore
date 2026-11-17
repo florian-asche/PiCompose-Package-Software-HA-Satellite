@@ -1,0 +1,13 @@
+../*.deb
+*.deb
+*.buildinfo
+*.changes
+*.asc
+.vscode/
+debian/.debhelper/
+debian/*.debhelper.log
+debian/*.substvars
+debian/files
+debian/ha-satellite/
+debian/debhelper-build-stamp
+out/
