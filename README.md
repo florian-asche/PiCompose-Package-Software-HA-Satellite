@@ -1,6 +1,6 @@
-# PiCompose-Package-HA-Satellite
+# PiCompose-Package-Software-HA-Satellite
 
-Package `ha-satellite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). It turns a [PiCompose](https://github.com/florian-asche/PiCompose) system into a Home Assistant voice satellite. It is the stage `03-stage-linux-voice-assistant` of the PiCompose image as a package.
+Package `picompose-software-ha-satellite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). It turns a [PiCompose](https://github.com/florian-asche/PiCompose) system into a Home Assistant voice satellite. It is the stage `03-stage-linux-voice-assistant` of the PiCompose image as a package.
 
 What differs from how the stage does it is documented in [diff.md](diff.md) (in German).
 
@@ -37,7 +37,7 @@ The repository needs the secret `HUB_DISPATCH_TOKEN` and a branch protection of 
 ```sh
 sudo apt install build-essential debhelper devscripts fakeroot lintian
 dpkg-buildpackage -us -uc -b
-lintian ../ha-satellite_*.deb
+lintian ../picompose-software-ha-satellite_*.deb
 ```
 
 ## License

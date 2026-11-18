@@ -1,13 +1,13 @@
-Source: ha-satellite
+Source: picompose-software-ha-satellite
 Section: admin
 Priority: optional
 Maintainer: Florian Asche <github@florian-asche.de>
 Build-Depends: debhelper-compat (= 13)
 Standards-Version: 4.7.0
-Homepage: https://github.com/florian-asche/PiCompose-Package-HA-Satellite
+Homepage: https://github.com/florian-asche/PiCompose-Package-Software-HA-Satellite
 Rules-Requires-Root: no
 
-Package: ha-satellite
+Package: picompose-software-ha-satellite
 Architecture: all
 Depends: ${misc:Depends},
  picompose-core

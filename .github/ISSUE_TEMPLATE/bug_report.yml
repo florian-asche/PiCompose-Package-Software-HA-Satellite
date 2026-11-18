@@ -5,13 +5,13 @@ body:
   - type: markdown
     attributes:
       value: |
-        Please read [AI_POLICY.md](https://github.com/florian-asche/PiCompose-Package-HA-Satellite/blob/main/.github/AI_POLICY.md) before submitting. Image problems belong in the [PiCompose](https://github.com/florian-asche/PiCompose/issues) repository, issues for the voice assistant itself in the [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant/issues) repository.
+        Please read [AI_POLICY.md](https://github.com/florian-asche/PiCompose-Package-Software-HA-Satellite/blob/main/.github/AI_POLICY.md) before submitting. Image problems belong in the [PiCompose](https://github.com/florian-asche/PiCompose/issues) repository, issues for the voice assistant itself in the [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant/issues) repository.
   - type: input
     id: package
     attributes:
       label: Package and version
       description: Output of `dpkg -s <package> | grep Version`.
-      placeholder: ha-satellite 0.1.1
+      placeholder: picompose-software-ha-satellite 0.1.1
     validations:
       required: true
   - type: dropdown

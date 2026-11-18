@@ -1,6 +1,6 @@
-# AI working guide for PiCompose-Package-HA-Satellite
+# AI working guide for PiCompose-Package-Software-HA-Satellite
 
-Package `ha-satellite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). It is the stage `03-stage-linux-voice-assistant` of the [PiCompose](https://github.com/florian-asche/PiCompose) image as a Debian package. Read `README.md` for what the package contains. When this file and the code disagree, the code wins, fix this file in the same change.
+Package `picompose-software-ha-satellite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). It is the stage `03-stage-linux-voice-assistant` of the [PiCompose](https://github.com/florian-asche/PiCompose) image as a Debian package. Read `README.md` for what the package contains. When this file and the code disagree, the code wins, fix this file in the same change.
 
 ## Rules
 

@@ -1,6 +1,6 @@
-# Contributing to PiCompose-Package-HA-Satellite
+# Contributing to PiCompose-Package-Software-HA-Satellite
 
-Everybody is invited and welcome to contribute to PiCompose-Package-HA-Satellite. Packaging fixes are appreciated.
+Everybody is invited and welcome to contribute to PiCompose-Package-Software-HA-Satellite. Packaging fixes are appreciated.
 
 - Fork the repository.
 - Create a branch and make your change.
