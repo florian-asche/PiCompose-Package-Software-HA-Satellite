@@ -6,8 +6,6 @@ Package `picompose-software-ha-satellite` for the [PiCompose APT repository](htt
 
 The package was called `ha-satellite` before. It is not published under that name any more, so install the new name.
 
-What differs from how the stage does it is documented in [diff.md](diff.md) (in German).
-
 ## Contents
 
 The package ships two Docker Compose projects. Both are deployed by the compose manager of [picompose-core](https://github.com/florian-asche/PiCompose-Package-Core). The package does not depend on it yet, so it has to be installed by other means (the PiCompose image does that).
