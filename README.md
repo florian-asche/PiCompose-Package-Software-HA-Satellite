@@ -1,4 +1,4 @@
-# PiCompose-Package-HA-Satellite
+# PiCompose-Package-Software-HA-Satellite
 
 Package `ha-satellite` for the [PiCompose APT repository](https://github.com/florian-asche/PiCompose-Repository). It turns a [PiCompose](https://github.com/florian-asche/PiCompose) system into a Home Assistant voice satellite. It is the stage `03-stage-linux-voice-assistant` of the PiCompose image as a package.
 

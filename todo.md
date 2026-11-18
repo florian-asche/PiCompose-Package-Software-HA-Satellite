@@ -1,4 +1,4 @@
-# To do for PiCompose-Package-HA-Satellite
+# To do for PiCompose-Package-Software-HA-Satellite
 
 Open points and work that was postponed. Remove an entry in the change that settles it.
 
