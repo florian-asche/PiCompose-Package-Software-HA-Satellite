@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.1.1) trixie; urgency=medium
+
+  * Remove the dependency on picompose-core for now (#7)
+
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 17:19:19 +0000
+
 picompose-software-ha-satellite (0.1.0) trixie; urgency=medium
 
   * Sync the lva .env with the .env.example of linux-voice-assistant (#6)
