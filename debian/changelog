@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.0.2) trixie; urgency=medium
+
+  * Call the shared workflows with a version and add the status badges (#3)
+
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 01:23:33 +0000
+
 picompose-software-ha-satellite (0.0.1) trixie; urgency=medium
 
   * Note the former package name in the README (#2)
