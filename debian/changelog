@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.0.4) trixie; urgency=medium
+
+  * Use a placeholder for SNAPCAST_REMOTE_HOST and keep Snapcast in this package (#5)
+
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 04:23:30 +0000
+
 picompose-software-ha-satellite (0.0.3) trixie; urgency=medium
 
   * Update docker-compose.yml on every install, write picompose.conf and .env only if missing (#4)
