@@ -18,8 +18,9 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Unverändert
 
-- `docker-compose.yml` und `picompose.conf` von `lva` und `snapcast` sowie die `.env` von `lva` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.
+- `docker-compose.yml` und `picompose.conf` von `lva` und `snapcast` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.
 
 ## Geändert
 
 - **`SNAPCAST_REMOTE_HOST`.** Die `.env` von `snapcast` hat statt der Adresse aus dem Netz des Autors (`tcp://192.168.33.5`) den Platzhalter `tcp://<IP-OF-YOUR-MUSICASSISTANT-SERVER>`. Er muss vor dem Aktivieren des Projekts gesetzt werden.
+- **`.env` von `lva`.** Sie entspricht der `.env.example` des linux-voice-assistant (Stand `ca2917a`) und nicht mehr der Datei der Stage. Neu sind unter anderem `MAC_ADDRESS`, `ENABLE_ENCRYPTION`, `ENCRYPTION_KEY_FILE`, `AUDIO_INPUT_BLOCK_SIZE`, die `PERIPHERAL_*`-Optionen, `DOWNLOAD_DIR` und weitere Sound-Dateien. `AUDIO_OUTPUT_DEVICE` und `AUDIO_INPUT_CHANNELS` haben neue Kommentare und Beispielwerte (`pulse`, `1`). Alle neuen Optionen sind auskommentiert, das Verhalten ändert sich also nicht. Eine vorhandene `/compose/lva/.env` wird nicht ersetzt.
