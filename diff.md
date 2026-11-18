@@ -10,7 +10,7 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Anders gelöst
 
-- **Kopieren der Projekte.** Die Stage legt `/compose/lva` und `/compose/snapcast` beim Bau des Images an und kopiert die Dateien hinein. Das Paket liefert sie nach `/usr/share/picompose/compose/<projekt>/` und kopiert ein Projekt in der `postinst` nur, wenn `/compose/<projekt>` noch nicht existiert. Folge: Ein Upgrade des Pakets ändert ein vorhandenes Projekt nie, auch nicht die `docker-compose.yml`.
+- **Kopieren der Projekte.** Die Stage legt `/compose/lva` und `/compose/snapcast` beim Bau des Images an und kopiert die Dateien hinein. Das Paket liefert sie nach `/usr/share/picompose/compose/<projekt>/`. Die `postinst` überschreibt `/compose/<projekt>/docker-compose.yml` bei jeder Installation und jedem Upgrade, kopiert `picompose.conf` und `.env` aber nur, wenn die Datei noch nicht existiert. Folge: Ein Upgrade aktualisiert die Compose-Dateien, ändert aber nie die Einstellungen des Nutzers.
 
 ## Zusätzlich im Paket
 
@@ -18,4 +18,4 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Unverändert
 
-- `docker-compose.yml`, `picompose.conf` und `.env` von `lva` und `snapcast` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.
+- Der Inhalt von `docker-compose.yml`, `picompose.conf` und `.env` von `lva` und `snapcast` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.

@@ -17,12 +17,12 @@ The package ships two Docker Compose projects. Both are deployed by the compose 
 | `lva` | [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant) | enabled, redeployed every day at 4 AM with a new image |
 | `snapcast` | Snapcast client for audio playback | disabled (`DISABLED=true`) |
 
-The files are installed to `/usr/share/picompose/compose/<project>/` (`docker-compose.yml`, `picompose.conf`, `.env`). The `postinst` copies a project to `/compose/<project>/` only if that directory does not exist yet, so your changes survive upgrades. Edit the files in `/compose`, for example `.env` for the name of the client or the address of the Snapcast server.
+The files are installed to `/usr/share/picompose/compose/<project>/` (`docker-compose.yml`, `picompose.conf`, `.env`). The `postinst` replaces `/compose/<project>/docker-compose.yml` on every install and upgrade, so do not edit it. `picompose.conf` and `.env` are copied only if they do not exist yet, so your changes survive upgrades. Edit these two files in `/compose`, for example `.env` for the name of the client or the address of the Snapcast server.
 
 ## Notes
 
 - The package ships the files of the image without changes. The default of `SNAPCAST_REMOTE_HOST` in the Snapcast `.env` is an address of the author's network and has to be set.
-- Because the files are only copied when missing, a new version of the package does not change `/compose` on a system that has the projects already.
+- A new version of the package updates the `docker-compose.yml` files but never changes an existing `picompose.conf` or `.env`. New options of a `.env` have to be added by hand.
 - Hardware needs a driver package of its own, see the packages `picompose-driver-*`.
 
 ## Versioning and changelog

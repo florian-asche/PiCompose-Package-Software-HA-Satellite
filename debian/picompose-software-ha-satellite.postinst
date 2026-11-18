@@ -3,12 +3,16 @@ set -e
 
 case "$1" in
     configure)
-        # The projects belong to the user once they exist, so they are copied only if missing.
+        # docker-compose.yml is managed by the package and replaced on every upgrade.
+        # picompose.conf and .env belong to the user once they exist, so they are copied only if missing.
         for project in lva snapcast; do
-            if [ ! -e "/compose/${project}" ]; then
-                mkdir -p "/compose/${project}"
-                cp -a "/usr/share/picompose/compose/${project}/." "/compose/${project}/"
-            fi
+            mkdir -p "/compose/${project}"
+            cp -f "/usr/share/picompose/compose/${project}/docker-compose.yml" "/compose/${project}/docker-compose.yml"
+            for file in picompose.conf .env; do
+                if [ ! -e "/compose/${project}/${file}" ]; then
+                    cp -p "/usr/share/picompose/compose/${project}/${file}" "/compose/${project}/${file}"
+                fi
+            done
         done
         ;;
 esac
