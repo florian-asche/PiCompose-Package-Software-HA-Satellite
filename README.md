@@ -21,7 +21,7 @@ The files are installed to `/usr/share/picompose/compose/<project>/` (`docker-co
 
 ## Notes
 
-- The package ships the files of the image without changes. The default of `SNAPCAST_REMOTE_HOST` in the Snapcast `.env` is an address of the author's network and has to be set.
+- The default of `SNAPCAST_REMOTE_HOST` in the Snapcast `.env` is the placeholder `tcp://<IP-OF-YOUR-MUSICASSISTANT-SERVER>` and has to be set before the project is enabled.
 - A new version of the package updates the `docker-compose.yml` files but never changes an existing `picompose.conf` or `.env`. New options of a `.env` have to be added by hand.
 - Hardware needs a driver package of its own, see the packages `picompose-driver-*`.
 

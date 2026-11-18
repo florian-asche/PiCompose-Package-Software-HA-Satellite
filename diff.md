@@ -18,4 +18,8 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Unverändert
 
-- Der Inhalt von `docker-compose.yml`, `picompose.conf` und `.env` von `lva` und `snapcast` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.
+- `docker-compose.yml` und `picompose.conf` von `lva` und `snapcast` sowie die `.env` von `lva` sind Byte für Byte die Dateien der Stage, mit den Rechten 644.
+
+## Geändert
+
+- **`SNAPCAST_REMOTE_HOST`.** Die `.env` von `snapcast` hat statt der Adresse aus dem Netz des Autors (`tcp://192.168.33.5`) den Platzhalter `tcp://<IP-OF-YOUR-MUSICASSISTANT-SERVER>`. Er muss vor dem Aktivieren des Projekts gesetzt werden.
