@@ -11,8 +11,9 @@ permissions:
 jobs:
   package:
     name: Package
-    uses: florian-asche/PiCompose-Repository/.github/workflows/package-tag-build.yml@main
+    uses: florian-asche/PiCompose-Repository/.github/workflows/package-tag-build.yml@v1.0.0
     permissions:
       contents: write
+      actions: read
     secrets:
       hub-token: ${{ secrets.HUB_DISPATCH_TOKEN }}
