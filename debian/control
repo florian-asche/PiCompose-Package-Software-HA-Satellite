@@ -9,8 +9,7 @@ Rules-Requires-Root: no
 
 Package: picompose-software-ha-satellite
 Architecture: all
-Depends: ${misc:Depends},
- picompose-core
+Depends: ${misc:Depends}
 Description: Home Assistant voice satellite for PiCompose
  Compose projects that turn a PiCompose system into a Home Assistant voice
  satellite: the Linux voice assistant and a Snapcast client for audio playback.

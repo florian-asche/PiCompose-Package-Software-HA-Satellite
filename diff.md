@@ -6,15 +6,12 @@ Pflege: Jede Änderung, die eine Abweichung neu schafft, ändert oder beseitigt,
 
 ## Nicht im Paket
 
+- Der Compose-Manager. Das Paket hat vorläufig kein `Depends` auf `picompose-core`, der Compose-Manager muss anders installiert sein (siehe `todo.md`).
 - Die Stage `04-stage-finish` (`.bashrc` und Aufräumen des Images) gehört nicht dazu.
 
 ## Anders gelöst
 
 - **Kopieren der Projekte.** Die Stage legt `/compose/lva` und `/compose/snapcast` beim Bau des Images an und kopiert die Dateien hinein. Das Paket liefert sie nach `/usr/share/picompose/compose/<projekt>/`. Die `postinst` überschreibt `/compose/<projekt>/docker-compose.yml` bei jeder Installation und jedem Upgrade, kopiert `picompose.conf` und `.env` aber nur, wenn die Datei noch nicht existiert. Folge: Ein Upgrade aktualisiert die Compose-Dateien, ändert aber nie die Einstellungen des Nutzers.
-
-## Zusätzlich im Paket
-
-- `Depends` auf `picompose-core`, das den Compose-Manager liefert, der die Projekte startet.
 
 ## Unverändert
 

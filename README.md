@@ -10,7 +10,7 @@ What differs from how the stage does it is documented in [diff.md](diff.md) (in 
 
 ## Contents
 
-The package ships two Docker Compose projects. Both are deployed by the compose manager of [picompose-core](https://github.com/florian-asche/PiCompose-Package-Core), on which the package depends.
+The package ships two Docker Compose projects. Both are deployed by the compose manager of [picompose-core](https://github.com/florian-asche/PiCompose-Package-Core). The package does not depend on it yet, so it has to be installed by other means (the PiCompose image does that).
 
 | Project | Image | Default |
 | --- | --- | --- |
