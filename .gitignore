@@ -8,6 +8,6 @@ debian/.debhelper/
 debian/*.debhelper.log
 debian/*.substvars
 debian/files
-debian/ha-satellite/
+debian/picompose-software-ha-satellite/
 debian/debhelper-build-stamp
 out/
