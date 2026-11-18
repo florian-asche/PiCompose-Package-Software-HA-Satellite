@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.1.2) trixie; urgency=medium
+
+  * Remove diff.md (#8)
+
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 17:21:04 +0000
+
 picompose-software-ha-satellite (0.1.1) trixie; urgency=medium
 
   * Remove the dependency on picompose-core for now (#7)
