@@ -5,7 +5,7 @@ case "$1" in
     configure)
         # docker-compose.yml is managed by the package and replaced on every upgrade.
         # picompose.conf and .env belong to the user once they exist, so they are copied only if missing.
-        for project in lva snapcast; do
+        for project in lva snapcast local-audio; do
             mkdir -p "/compose/${project}"
             cp -f "/usr/share/picompose/compose/${project}/docker-compose.yml" "/compose/${project}/docker-compose.yml"
             for file in picompose.conf .env; do
