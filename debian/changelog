@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.1.0) trixie; urgency=medium
+
+  * Sync the lva .env with the .env.example of linux-voice-assistant (#6)
+
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 17:16:18 +0000
+
 picompose-software-ha-satellite (0.0.4) trixie; urgency=medium
 
   * Use a placeholder for SNAPCAST_REMOTE_HOST and keep Snapcast in this package (#5)
