@@ -1,5 +1,5 @@
-picompose-software-ha-satellite (0.0.0) trixie; urgency=medium
+picompose-software-ha-satellite (0.0.1) trixie; urgency=medium
 
-  * Placeholder. The workflows write this file when a pull request is merged.
+  * Note the former package name in the README (#2)
 
- -- Florian Asche <github@florian-asche.de>  Tue, 17 Nov 2026 00:00:00 +0100
+ -- Florian Asche <github@florian-asche.de>  Wed, 18 Nov 2026 00:22:52 +0000
