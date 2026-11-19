@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.1) trixie; urgency=medium
+
+  * Use the default socket path of lva for the Sendspin control socket (#11)
+
+ -- Florian Asche <github@florian-asche.de>  Thu, 19 Nov 2026 20:39:11 +0000
+
 picompose-software-ha-satellite (0.3.0) trixie; urgency=medium
 
   * Mount the control socket of local-audio into the lva project (#10)
