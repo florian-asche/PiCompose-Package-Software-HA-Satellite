@@ -5,16 +5,17 @@ services:
     image: "${LOCAL_AUDIO_IMAGE:-ghcr.io/music-assistant/local-audio-addon}:${LOCAL_AUDIO_IMAGE_TAG:-latest}"
     entrypoint: []
     user: "0:0"
-    command: "chown -R ${LOCAL_AUDIO_USER_ID:-1000}:${LOCAL_AUDIO_USER_GROUP:-1000} /data"
+    command: "chown -R ${LOCAL_AUDIO_USER_ID:-1000}:${LOCAL_AUDIO_USER_GROUP:-1000} /data /control"
     volumes:
       - data:/data
+      - /run/${LOCAL_AUDIO_CONTAINER_NAME:-local-audio}:/control
     restart: "no"
 
   # Music Assistant Local Audio (Sendspin player)
   # The image starts s6-overlay with its own dbus and avahi-daemon. The entrypoint is replaced here,
   # so only sendspin-cli runs. It announces itself through the Avahi of the host (D-Bus socket below).
   local-audio:
-    container_name: local-audio
+    container_name: ${LOCAL_AUDIO_CONTAINER_NAME:-local-audio}
     image: "${LOCAL_AUDIO_IMAGE:-ghcr.io/music-assistant/local-audio-addon}:${LOCAL_AUDIO_IMAGE_TAG:-latest}"
     restart: unless-stopped
     # mDNS discovery and the port 8928 that the server connects back to need the network of the host
@@ -33,6 +34,8 @@ services:
     volumes:
       # Identity, pairings and rendered configuration
       - data:/data
+      # Control socket of the player, on the host as /run/<container name>/control.sock
+      - /run/${LOCAL_AUDIO_CONTAINER_NAME:-local-audio}:/control
       # Time and zone
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
@@ -53,13 +56,14 @@ services:
         set -euo pipefail
         conf=/data/sendspin-cli.conf
         mkdir -p /data/state
-        rm -f /data/control.sock
+        rm -f /control/control.sock
         umask 077
         {
           printf 'output = %s\n' "$${LOCAL_AUDIO_OUTPUT:-pulse}"
           printf 'log-level = %s\n' "$${LOCAL_AUDIO_LOG_LEVEL:-info}"
           printf 'manufacturer = Music Assistant\n'
           printf 'product-name = Local Audio\n'
+          [ -z "$${LOCAL_AUDIO_PORT:-}" ] || printf 'port = %s\n' "$$LOCAL_AUDIO_PORT"
           [ -z "$${LOCAL_AUDIO_NAME:-}" ] || printf 'name = %s\n' "$$LOCAL_AUDIO_NAME"
           [ -z "$${LOCAL_AUDIO_SERVER:-}" ] || printf 'server = %s\n' "$$LOCAL_AUDIO_SERVER"
           [ -z "$${LOCAL_AUDIO_BUFFER_MS:-}" ] || printf 'buffer-ms = %s\n' "$$LOCAL_AUDIO_BUFFER_MS"
@@ -69,10 +73,10 @@ services:
           [ -z "$${LOCAL_AUDIO_HOOK_START:-}" ] || printf 'hook-start = %s\n' "$$LOCAL_AUDIO_HOOK_START"
           [ -z "$${LOCAL_AUDIO_HOOK_STOP:-}" ] || printf 'hook-stop = %s\n' "$$LOCAL_AUDIO_HOOK_STOP"
         } > "$$conf"
-        exec sendspin-cli --config "$$conf" --state-dir /data/state --control-socket /data/control.sock
+        exec sendspin-cli --config "$$conf" --state-dir /data/state --control-socket /control/control.sock
     # Health check for process
     healthcheck:
-      test: ["CMD", "sendspin-cli", "status", "--control-socket", "/data/control.sock"]
+      test: ["CMD", "sendspin-cli", "status", "--control-socket", "/control/control.sock"]
       interval: 30s
       timeout: 10s
       retries: 3
