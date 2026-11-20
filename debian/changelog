@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.2) trixie; urgency=medium
+
+  * Check for updates of the GitHub Actions daily (#12)
+
+ -- Florian Asche <github@florian-asche.de>  Fri, 20 Nov 2026 20:12:09 +0000
+
 picompose-software-ha-satellite (0.3.1) trixie; urgency=medium
 
   * Use the default socket path of lva for the Sendspin control socket (#11)
