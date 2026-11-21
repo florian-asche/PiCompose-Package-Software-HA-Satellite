@@ -22,7 +22,7 @@ The `local-audio` image starts its processes with s6-overlay. The compose file r
 
 ## Notes
 
-- `local-audio` needs the port 8928 (host network) and an Avahi daemon on the host for discovery. Both the announcement through the Avahi of the host and the audio output were not tested on a Raspberry Pi.
+- `local-audio` needs the port 8928 (host network) and an Avahi daemon on the host for discovery. The service sets `security_opt: apparmor=unconfined`, because the Docker profile `docker-default` of an AppArmor host (for example Ubuntu) blocks the announcement (`could not register _sendspin._tcp`). On the PiCompose image AppArmor was not enforced when checked, so the option changes nothing there. Both the announcement through the Avahi of the host and the audio output were not tested on a Raspberry Pi.
 - The default of `SNAPCAST_REMOTE_HOST` in the Snapcast `.env` is the placeholder `tcp://<IP-OF-YOUR-MUSICASSISTANT-SERVER>` and has to be set before the project is enabled.
 - A new version of the package updates the `docker-compose.yml` files but never changes an existing `picompose.conf` or `.env`. New options of a `.env` have to be added by hand.
 - Hardware needs a driver package of its own, see the packages `picompose-driver-*`.
