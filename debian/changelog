@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.4) trixie; urgency=medium
+
+  * Allow unpaired servers for the local-audio project by default (#14)
+
+ -- Florian Asche <github@florian-asche.de>  Sat, 21 Nov 2026 21:38:36 +0000
+
 picompose-software-ha-satellite (0.3.3) trixie; urgency=medium
 
   * Set apparmor=unconfined for the local-audio project (#13)
