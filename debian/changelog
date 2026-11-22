@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.4.1) trixie; urgency=medium
+
+  * Add a note to CLAUDE.md to ask about PiCompose documentation (#20)
+
+ -- Florian Asche <github@florian-asche.de>  Sun, 22 Nov 2026 18:28:57 +0000
+
 picompose-software-ha-satellite (0.4.0) trixie; urgency=medium
 
   * Add bt-proxy project, an ESPHome Bluetooth proxy (#19)
