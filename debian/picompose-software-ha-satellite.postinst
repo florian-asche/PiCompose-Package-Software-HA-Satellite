@@ -3,13 +3,16 @@ set -e
 
 case "$1" in
     configure)
-        # docker-compose.yml and .env are managed by the package and replaced on every upgrade (temporary, until a better update method exists).
-        # picompose.conf belongs to the user once it exists, so it is copied only if missing.
+        # docker-compose.yml and .env.example are managed by the package and replaced on every upgrade.
+        # .env and picompose.conf belong to the user once they exist, so they are created from the shipped files only if missing.
         for project in lva snapcast local-audio bt-proxy; do
             mkdir -p "/compose/${project}"
-            for file in docker-compose.yml .env; do
+            for file in docker-compose.yml .env.example; do
                 cp -f "/usr/share/picompose/compose/${project}/${file}" "/compose/${project}/${file}"
             done
+            if [ ! -e "/compose/${project}/.env" ]; then
+                cp -p "/usr/share/picompose/compose/${project}/.env.example" "/compose/${project}/.env"
+            fi
             if [ ! -e "/compose/${project}/picompose.conf" ]; then
                 cp -p "/usr/share/picompose/compose/${project}/picompose.conf" "/compose/${project}/picompose.conf"
             fi
