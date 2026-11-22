@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.4.0) trixie; urgency=medium
+
+  * Add bt-proxy project, an ESPHome Bluetooth proxy (#19)
+
+ -- Florian Asche <github@florian-asche.de>  Sun, 22 Nov 2026 18:21:10 +0000
+
 picompose-software-ha-satellite (0.3.7) trixie; urgency=medium
 
   * Set a fixed container name for the local-audio service (#18)
