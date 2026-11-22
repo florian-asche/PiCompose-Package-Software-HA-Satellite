@@ -13,6 +13,16 @@ Package `picompose-software-ha-satellite` for the [PiCompose APT repository](htt
 - Maintainer scripts must be idempotent, run without prompts, and not fail when the hardware is missing. Units are installed to `/usr/lib/systemd/system` and enabled with `dh_installsystemd`, without `systemctl` calls. Defaults for user-owned locations are shipped below `/usr/share` and copied by `postinst` only if missing. The exception is `docker-compose.yml` and `.env` of the projects, which are managed by the package and replaced on every `configure` (temporary, see `todo.md`).
 - Hardware behavior (audio, boot configuration, kernel modules, I2C) cannot be tested here. Say that it was not tested on hardware, never claim it was.
 
+## Documentation in PiCompose (ask first)
+
+The PiCompose repository documents the projects of this package. When a change adds, removes or renames a project, or changes which projects are enabled by default, check these places in `/home/florian/repos/PiCompose` (read only, see the rules above):
+
+- `README.md`: the note about the projects in the package (step "Search for Docker Compose files"), the "Configuration" section, the line about what is disabled by default, and "Example projects".
+- `DEVELOPMENT.md`: the description of the stage `03-stage-linux-voice-assistant/`.
+- `03-stage-linux-voice-assistant/01-ha-satellite-package/01-run.sh`: the comment about the projects that the package installs.
+
+**Always ask the developer first** whether PiCompose should be adjusted too, and name the places that are out of date. Never change PiCompose on your own, and do not post to GitHub for it. If the developer says yes, make the change on a branch of PiCompose, as agreed with them.
+
 ## Commands
 
 | Task | Command |
