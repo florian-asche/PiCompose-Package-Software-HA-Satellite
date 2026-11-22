@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.7) trixie; urgency=medium
+
+  * Set a fixed container name for the local-audio service (#18)
+
+ -- Florian Asche <github@florian-asche.de>  Sun, 22 Nov 2026 03:19:03 +0000
+
 picompose-software-ha-satellite (0.3.6) trixie; urgency=medium
 
   * Replace docker-compose.yml and .env on every upgrade and redeploy running projects (#16)
