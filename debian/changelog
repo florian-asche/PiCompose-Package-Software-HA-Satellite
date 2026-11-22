@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.5) trixie; urgency=medium
+
+  * Align the local-audio and lva compose projects with the standalone project of the local-audio add-on (#15)
+
+ -- Florian Asche <github@florian-asche.de>  Sun, 22 Nov 2026 01:57:00 +0000
+
 picompose-software-ha-satellite (0.3.4) trixie; urgency=medium
 
   * Allow unpaired servers for the local-audio project by default (#14)
