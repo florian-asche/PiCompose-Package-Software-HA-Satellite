@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.3.6) trixie; urgency=medium
+
+  * Replace docker-compose.yml and .env on every upgrade and redeploy running projects (#16)
+
+ -- Florian Asche <github@florian-asche.de>  Sun, 22 Nov 2026 02:02:07 +0000
+
 picompose-software-ha-satellite (0.3.5) trixie; urgency=medium
 
   * Align the local-audio and lva compose projects with the standalone project of the local-audio add-on (#15)
