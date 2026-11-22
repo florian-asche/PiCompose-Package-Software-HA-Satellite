@@ -18,7 +18,7 @@ The package ships four Docker Compose projects. They are deployed by the compose
 | `lva` | [linux-voice-assistant](https://github.com/OHF-Voice/linux-voice-assistant) | enabled, redeployed every day at 4 AM with a new image |
 | `snapcast` | Snapcast client for audio playback | disabled (`DISABLED=true`) |
 | `local-audio` | [Music Assistant Local Audio](https://github.com/music-assistant/local-audio-addon), a Sendspin player for Music Assistant | enabled, redeployed every day at 4 AM with a new image |
-| `bt-proxy` | [bt-proxy](https://github.com/denvera/bt-proxy), an ESPHome-compatible Bluetooth proxy | disabled (`DISABLED=true`) |
+| `bt-proxy` | [bt-proxy](https://github.com/denvera/bt-proxy), an ESPHome-compatible Bluetooth proxy | enabled, redeployed every day at 4 AM with a new image |
 
 The files are installed to `/usr/share/picompose/compose/<project>/` (`docker-compose.yml`, `picompose.conf`, `.env`). The `postinst` replaces `/compose/<project>/docker-compose.yml` and `/compose/<project>/.env` on every install and upgrade (temporary, see the note at the top), so changes to them do not survive an upgrade. A project whose containers are running is redeployed afterwards (`docker compose down`, then `up --detach`), so it picks up the new files; a failure of that does not fail the installation. `picompose.conf` is copied only if it does not exist yet, so your changes to it survive upgrades.
 

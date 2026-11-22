@@ -18,5 +18,5 @@ Description: Home Assistant voice satellite for PiCompose
  The projects are copied to /compose, where the PiCompose compose manager
  deploys them. docker-compose.yml is updated with the package, picompose.conf
  and .env are only written on first installation. The Linux voice assistant and
- the Local Audio player are enabled, the Snapcast client and the Bluetooth
- proxy are disabled until they are enabled in their picompose.conf.
+ the Local Audio player and the Bluetooth proxy are enabled, the Snapcast client
+ is disabled until it is enabled in its picompose.conf.
