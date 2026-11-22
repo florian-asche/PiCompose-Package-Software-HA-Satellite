@@ -12,11 +12,11 @@ Architecture: all
 Depends: ${misc:Depends}
 Description: Home Assistant voice satellite for PiCompose
  Compose projects that turn a PiCompose system into a Home Assistant voice
- satellite: the Linux voice assistant, a Snapcast client and a Music Assistant
- Local Audio player for audio playback.
+ satellite: the Linux voice assistant, a Snapcast client, a Music Assistant
+ Local Audio player for audio playback and a Bluetooth proxy.
  .
  The projects are copied to /compose, where the PiCompose compose manager
  deploys them. docker-compose.yml is updated with the package, picompose.conf
- and .env are only written on first installation. The Linux voice assistant and
- the Local Audio player are enabled, the Snapcast client is disabled until it
- is enabled in its picompose.conf.
+ and .env are only written on first installation. The Linux voice assistant,
+ the Local Audio player and the Bluetooth proxy are enabled, the Snapcast client
+ is disabled until it is enabled in its picompose.conf.
