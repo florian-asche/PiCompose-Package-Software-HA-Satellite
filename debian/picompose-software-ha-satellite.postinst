@@ -3,16 +3,24 @@ set -e
 
 case "$1" in
     configure)
-        # docker-compose.yml is managed by the package and replaced on every upgrade.
-        # picompose.conf and .env belong to the user once they exist, so they are copied only if missing.
+        # docker-compose.yml and .env are managed by the package and replaced on every upgrade (temporary, until a better update method exists).
+        # picompose.conf belongs to the user once it exists, so it is copied only if missing.
         for project in lva snapcast local-audio; do
             mkdir -p "/compose/${project}"
-            cp -f "/usr/share/picompose/compose/${project}/docker-compose.yml" "/compose/${project}/docker-compose.yml"
-            for file in picompose.conf .env; do
-                if [ ! -e "/compose/${project}/${file}" ]; then
-                    cp -p "/usr/share/picompose/compose/${project}/${file}" "/compose/${project}/${file}"
-                fi
+            for file in docker-compose.yml .env; do
+                cp -f "/usr/share/picompose/compose/${project}/${file}" "/compose/${project}/${file}"
             done
+            if [ ! -e "/compose/${project}/picompose.conf" ]; then
+                cp -p "/usr/share/picompose/compose/${project}/picompose.conf" "/compose/${project}/picompose.conf"
+            fi
+            # Redeploy projects that are running so they use the new files. A failure must not fail the installation.
+            if command -v docker >/dev/null 2>&1; then
+                running=$(docker compose --project-directory "/compose/${project}" ps --quiet 2>/dev/null || true)
+                if [ -n "${running}" ]; then
+                    docker compose --project-directory "/compose/${project}" down || true
+                    docker compose --project-directory "/compose/${project}" up --detach || true
+                fi
+            fi
         done
         ;;
 esac
