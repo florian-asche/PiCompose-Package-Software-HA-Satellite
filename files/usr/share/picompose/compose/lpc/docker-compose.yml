@@ -1,0 +1,37 @@
+---
+services:
+  # Linux Peripherals Controller
+  linux-peripherals-controller:
+    container_name: linux-peripherals-controller
+    image: "${LPC_IMAGE:-ghcr.io/ohf-voice/linux-peripherals-controller}:${LPC_IMAGE_TAG:-latest}"
+    restart: unless-stopped
+    # Host network, so "localhost" reaches the peripheral API (port 6055) of LVA
+    network_mode: "host"
+    env_file: ${ENV_FILE:-.env}
+    # Hardware access: GPIO (/dev/gpiochip*), SPI (/dev/spidev*), USB (/dev/bus/usb) and HID (/dev/hidraw*)
+    privileged: true
+    volumes:
+      # Device configuration (DEVICE_CONFIG=/config/device.toml)
+      - config:/config:ro
+      # State (child lock, light) and the encryption key
+      - data:/data
+      # Socket of satellite1d, the daemon of the Satellite1 HAT (only for DEVICE_TYPE="satellite1")
+      #- /run/satellite1:/run/satellite1
+      # Time and zone
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    # Health check for process
+    healthcheck:
+      test: ["CMD", "pgrep", "-f", "linux_peripherals_controller"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    #command:
+    #  - --additional-parameters-here
+    #  - --but-use-env-if-possible
+
+
+volumes:
+  config:
+  data:

@@ -5,7 +5,7 @@ case "$1" in
     configure)
         # docker-compose.yml and .env.example are managed by the package and replaced on every upgrade.
         # .env and picompose.conf belong to the user once they exist, so they are created from the shipped files only if missing.
-        for project in lva snapcast local-audio bt-proxy; do
+        for project in lva snapcast local-audio bt-proxy lpc; do
             mkdir -p "/compose/${project}"
             for file in docker-compose.yml .env.example; do
                 cp -f "/usr/share/picompose/compose/${project}/${file}" "/compose/${project}/${file}"
