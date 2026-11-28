@@ -1,3 +1,9 @@
+picompose-software-ha-satellite (0.6.0) trixie; urgency=medium
+
+  * Add the lpc project for linux-peripherals-controller (#23)
+
+ -- Florian Asche <github@florian-asche.de>  Sat, 28 Nov 2026 03:49:52 +0000
+
 picompose-software-ha-satellite (0.5.0) trixie; urgency=medium
 
   * Add bt-proxy project and ship .env as .env.example (#21)
